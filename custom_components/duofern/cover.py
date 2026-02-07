@@ -107,7 +107,7 @@ class DuofernShutter(CoverEntity):
         """Return true if cover is close."""
         if self._state is None:
             return None
-        return self._state == 0
+        return self._stick.duofern_parser.modules['by_code'][self._duofernId]['position'] >= self._stick.duofern_parser.modules['by_code'][self._duofernId]['ventilatingPosition'] - 1
 
     @property
     def should_poll(self) -> bool:
