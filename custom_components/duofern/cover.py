@@ -18,6 +18,7 @@ from pyduofern.duofern_stick import DuofernStickThreaded
 
 from homeassistant.components.cover import (
     ATTR_POSITION,
+    CoverDeviceClass,
     CoverEntity,
     CoverEntityFeature
 )
@@ -75,6 +76,7 @@ class DuofernShutter(CoverEntity):
         self._stick = stick
         self._openclose: Literal["up", "down", "stop"] = 'stop'
         self._last_update_time = datetime.datetime.now()
+        self._attr_device_class = CoverDeviceClass.SHUTTER
 
     @property
     def name(self) -> str:
